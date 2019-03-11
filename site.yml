@@ -1,0 +1,35 @@
+---
+- hosts: dev1
+  roles:
+    - role: dev1_project1
+      tags: ['dev1_project1']
+
+- hosts: dev1
+  roles:
+    - role: dev1_project2
+      tags: ['dev1_project2']
+
+- hosts: dev1
+  roles:
+    - role: copy_front
+      tags: ['copy_front']
+
+- hosts: localhost
+  roles:
+    - role: firebird
+      tags: ['firebird']
+
+    - role: postgres
+      tags: ['postgres']
+
+    - role: tomcat
+      tags: ['tomcat']
+
+    - role: wildfly
+      tags: ['wildfly']
+
+    - role: nginx
+      tags: ['nginx']
+
+    - role: restoredb
+      tags: ['restoredb']
