@@ -1,0 +1,14 @@
+---
+# tasks file for wildfly
+- name: Start wildfly
+  docker_container:
+    name: wildfly
+    image: jboss/wildfly
+    restart_policy: unless-stopped
+    ports:
+      - <some_port>:8080
+    env:
+      TZ: <time_zone>
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /<path>/your-awesome-project1.war:/opt/jboss/wildfly/standalone/deployments/your-awesome-project1.war:rw

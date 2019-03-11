@@ -1,0 +1,12 @@
+---
+# tasks file for postgres
+- name: Creating container Postgres
+  docker_container:
+    name: postgres
+    image: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /<project_path>/roles/restoredb/tasks/:/tmp/
+    restart_policy: unless-stopped

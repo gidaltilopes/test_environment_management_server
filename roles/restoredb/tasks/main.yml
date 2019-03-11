@@ -1,0 +1,6 @@
+---
+# tasks file for restoredb
+- name: Restore Firebird
+  command: docker exec firebird /tmp/restore_firebird.sh
+- name: Restore Postgres
+  command: docker exec postgres /tmp/restore_postgres.sh

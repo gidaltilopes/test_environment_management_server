@@ -1,0 +1,14 @@
+---
+# tasks file for nginx
+- name: Init container
+  docker_container:
+    name: nginx
+    image: nginx
+    restart_policy: unless-stopped
+    ports:
+      - <some_port>:80
+    env:
+      TZ: <time_zone>
+    volumes:
+      - /<path_to_frontend_files>:/usr/share/nginx/html
+      - /etc/localtime:/etc/localtime:ro

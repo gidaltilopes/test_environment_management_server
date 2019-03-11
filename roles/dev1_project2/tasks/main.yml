@@ -1,0 +1,7 @@
+---
+# tasks file for your-awesome-project2.war
+- name: Copy your-awesome-project2.war
+  fetch:
+    src: /<path>/your-awesome-project2.war
+    dest: /<path>/your-awesome-project2.war
+    flat: yes

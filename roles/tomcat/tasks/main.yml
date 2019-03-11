@@ -1,0 +1,16 @@
+---
+# tasks file for tomcat
+- name: Tomcat container
+  docker_container:
+    name: tomcat
+    image: tomcat:7
+    restart_policy: unless-stopped
+    ports:
+      - <some_port>:8080
+    env:
+      LANG: <unicode>
+      CATALINA_OPTS: "-Duser.country=<value> -Duser.language=<value>"
+      TZ: <time_zone>
+    volumes:
+      - /<path>/project2.war:/usr/local/tomcat/webapps/your-awesome-project2.war:ro
+      - /etc/localtime:/etc/localtime:ro

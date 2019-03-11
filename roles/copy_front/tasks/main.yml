@@ -1,0 +1,7 @@
+---
+# tasks file for copy_front
+- name: Copy Frontend
+  fetch:
+    src: /<remote_path>
+    dest: /<path>
+    flat: yes

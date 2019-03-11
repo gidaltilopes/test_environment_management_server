@@ -1,0 +1,15 @@
+---
+# tasks file for firebird
+- name: Init Firebird container
+  docker_container:
+    name: firebird
+    image: jacobalberty/firebird:3.0.3
+    restart_policy: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /<project_path>/roles/restoredb/tasks/:/tmp/
+    ports:
+      - 3050:3050
+    env:
+      TZ: <time_zone>
+      ISC_PASSWORD: <new_db_pass>
